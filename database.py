@@ -1,9 +1,9 @@
 from sqlalchemy import create_engine, text
-from dotenv import load_dotenv
-import os
-load_dotenv()
 
-database_uri = os.getenv("api_key")
+import os
+
+
+database_uri = os.getenv("DB_CONNECTION_STRING")
 engine = create_engine(database_uri, connect_args=
                        {
                            'ssl': {'ssl_ca': "/etc/ssl/cert.pem"}
