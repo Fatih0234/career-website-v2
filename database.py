@@ -3,7 +3,7 @@ from sqlalchemy import create_engine, text
 import os
 
 
-database_uri = os.getenv("DB_CONNECTION_STRING")
+database_uri = os.environ.get("DB_CONNECTION_STRING")
 engine = create_engine(database_uri, connect_args=
                        {
                            'ssl': {'ssl_ca': "/etc/ssl/cert.pem"}
