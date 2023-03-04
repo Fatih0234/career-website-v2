@@ -2,106 +2,56 @@
 <html>
   <head>
     <title>My Career Website</title>
-    <style>
+    {% include "bootstrap.html" %}
 
-        .bodytext {
-            text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-      /* Styles for the header */
-      header {
-        background-color: #333;
-        color: white;
-        padding: 10px;
-        text-align: center;
-      }
-
-      /* Styles for the image */
-      #image {
-        display: block;
-        margin: auto;
-        width: 80%;
-        object-fit: cover;
-   
-      }
-
-      /* Styles for the "about us" section */
-      #about-us {
-        background-color: #f2f2f2;
-        padding: 20px;
-        text-align: center;
-      }
-      
-      #about-us-p {
-        
-        text-align: center;
-        margin: 0 auto;
-        background-color: #f2f2f2;
-        width: 60%;
-        line-height: 2;
-      }
-
-      /* Styles for the job openings */
-      #job-openings {
-        padding: 20px;
-        text-align: center;
-      }
-
-      /* Styles for the contact us button */
-      #contact-us {
-        background-color: #333;
-        color: white;
-        padding: 10px;
-        text-align: center;
-      }
-
-      /* Styles for the button */
-      button {
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        cursor: pointer;
-      }
-    </style>
   </head>
   <body>
-    <div id ="container">
+    {% include "nav.html" %}
+
+    {% include "banner.html" %}
+
+    <div class="container">
     <header>
-      <h1>Welcome to My Career Website</h1>
+      <h1 class="text-center mt-2 mb-4">Welcome to Fatih Career Website</h1>
     </header>
 
-    <img id="image" src="{{ url_for('static', filename='images/home.jpg') }}" alt="Car Image">
 
-    <div id="about-us">
-      <h2>About Us</h2>
-      <p id="about-us-p" class="bodytext">
-        Phasellus mollis aliquet sapien, id pellentesque libero efficitur et. Aliquam erat volutpat. In magna odio, euismod quis erat non, ornare viverra massa. Sed imperdiet efficitur tincidunt. Fusce volutpat turpis a placerat dapibus. Nam ac vulputate neque. Ut at hendrerit velit, sodales malesuada ipsum. Suspendisse eget ultrices diam, eu sagittis eros. Maecenas viverra consequat vulputate. Integer nisl nisl, rutrum ut mi at, fermentum tempus diam. Cras consequat, quam vel pulvinar placerat, nibh felis posuere sapien, ac efficitur nisi orci sit amet libero. Nam id egestas quam, quis eleifend libero. Vivamus vel urna tellus. Phasellus ut nibh nec dolor efficitur fermentum.
 
-        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec vitae commodo neque. Aenean nec justo sed sem vulputate pharetra a iaculis lacus. Suspendisse tempor enim quis aliquam lobortis. In sodales consectetur porta. Curabitur at cursus lacus. Pellentesque molestie nulla eu quam sagittis, eu sodales lacus iaculis. Suspendisse tincidunt turpis ipsum, vel malesuada felis sollicitudin non. Morbi volutpat aliquet ipsum, sed tempus dolor ultrices at. Phasellus at nulla euismod, rutrum arcu eu, condimentum sapien.
+    <div>
 
-      </p>
+
+      <div class="row align-items-center justify-content">
+        <div class="col-md-6">
+          <h2 class="text-center mt-2 mb-4">About Us</h2>
+          <p class="lead" >
+            Phasellus mollis aliquet sapien, id pellentesque libero efficitur et. Aliquam erat volutpat. In magna odio, euismod quis erat non, ornare viverra massa. Sed imperdiet efficitur tincidunt. Fusce volutpat turpis a placerat dapibus. Nam ac vulputate neque. Ut at hendrerit velit, sodales malesuada ipsum. Suspendisse eget ultrices diam, eu sagittis eros. Maecenas viverra consequat vulputate. Integer nisl nisl, rutrum ut mi at, fermentum tempus diam. Cras consequat, quam vel pulvinar placerat, nibh felis posuere sapien, ac efficitur nisi orci sit amet libero. Nam id egestas quam, quis eleifend libero. Vivamus vel urna tellus. Phasellus ut nibh nec dolor efficitur fermentum.
+              </p>
+        </div>
+
+        <div class="d-none d-md-block col-md-6">
+          <img class="img-fluid" src="/static/images/people-working.jpg">
+      </div>
+
     </div>
 
-    <div id="job-openings">
-      <h2>Job Openings</h2>
-      <ul>
-        <li class="bodytext">Software Engineer</li>
-        <li class="bodytext">Marketing Specialist</li>
-        <li class="bodytext">Human Resources Manager</li>
-      </ul>
+    <div>
+      <h2 class="text-center mt-2 mb-4">Available Positions</h2>
+        <div class="container">
+          {% for job in jobs %}
+            {% include "jobitem.html" %}
+          {% endfor %}
+        </div>
+
+        
     </div>
 
-    <div id="contact-us">
-      <button class="bodytext">Contact Us</button>
+    <div class="text-center">
+      <a href="mailto:hello@fatihcareer.ai?subject=Questions%20for%20Job%20Openings%20&body=My%20name%3A%20%3CYour%20name%20here%3E%0D%0A%0D%0AMy%20Question%3A%20%3CEnter%20question%20here%3E%0D%0A" type="button" class="btn btn-primary btn-lg mt-4">Contact Us</a>
     </div>
-    <p class="bodytext">Copyright 2023, Fatih Karahan</p>
+    
     </div>
+
+    {% include "footer.html" %}
+
   </body>
 </html>
